@@ -80,10 +80,10 @@ agenda-medica-flask/
 
 ## Sprint 2 - Banco de Dados
 
-- [ ] Conexão SQLite (app/database.py)
-- [ ] Tabela de usuários
-- [ ] Estrutura de agendamentos
-- [ ] Seed (usuário de teste)
+- [x] Conexão SQLite (app/database.py)
+- [x] Tabela de usuários
+- [x] Estrutura de agendamentos
+- [x] Seed (usuário de teste)
 
 ## Sprint 3 - Autenticação
 
