@@ -98,9 +98,9 @@ agenda-medica-flask/
 
 ## Sprint 5 - Agenda
 
-- [ ] Tabulator
-- [ ] Busca
-- [ ] Filtros
+- [x] Tabulator
+- [x] Busca
+- [x] Filtros (paciente, CPF, médico)
 
 ## Sprint 6 - Tratamento de Erros
 

@@ -3,9 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Agenda Médica</title>
+    <link href="https://unpkg.com/tabulator-tables@5.6.1/dist/css/tabulator.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        #busca {
+            padding: 0.5rem;
+            width: 300px;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Agenda Médica</h1>
-    <p>Tabela de agendamentos em construção (Sprint 5).</p>
+    <header>
+        <h1>Agenda Médica</h1>
+        <a href="/logout">Sair</a>
+    </header>
+
+    <input type="text" id="busca" placeholder="Buscar por paciente, CPF ou médico...">
+
+    <div id="tabela-agendamentos"></div>
+
+    <script src="https://unpkg.com/tabulator-tables@5.6.1/dist/js/tabulator.min.js"></script>
+    <script>
+        const agendamentos = {{ agendamentos | tojson }};
+
+        const tabela = new Tabulator("#tabela-agendamentos", {
+            data: agendamentos,
+            layout: "fitColumns",
+            placeholder: "Nenhum agendamento disponível",
+            columns: [
+                { title: "Data", field: "data" },
+                { title: "Horário", field: "horario" },
+                { title: "Paciente", field: "paciente" },
+                { title: "CPF", field: "cpf" },
+                { title: "Médico", field: "medico" },
+                { title: "Especialidade", field: "especialidade" },
+                { title: "Convênio", field: "convenio" },
+                { title: "Status", field: "status" },
+            ],
+        });
+
+        document.getElementById("busca").addEventListener("input", function (e) {
+            const termo = e.target.value.trim().toLowerCase();
+
+            if (!termo) {
+                tabela.clearFilter();
+                return;
+            }
+
+            tabela.setFilter(function (linha) {
+                return (
+                    linha.paciente.toLowerCase().includes(termo) ||
+                    linha.cpf.toLowerCase().includes(termo) ||
+                    linha.medico.toLowerCase().includes(termo)
+                );
+            });
+        });
+    </script>
 </body>
 </html>

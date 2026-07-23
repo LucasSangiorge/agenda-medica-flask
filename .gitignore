@@ -24,6 +24,7 @@ logs/
 # Configurações de IDE
 .vscode/
 .idea/
+.claude/
 
 # Sistema operacional
 .DS_Store

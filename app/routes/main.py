@@ -46,6 +46,9 @@ def logout():
 
 @main_bp.route("/agenda")
 def agenda():
+    if "usuario_id" not in session:
+        return redirect(url_for("main.login"))
+    
     resposta = requests.get(Config.MOCK_API_URL)
     agendamentos = resposta.json()
     return render_template("agenda.html", agendamentos=agendamentos)
