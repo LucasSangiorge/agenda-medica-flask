@@ -104,9 +104,9 @@ agenda-medica-flask/
 
 ## Sprint 6 - Tratamento de Erros
 
-- [ ] Logs
-- [ ] Exceções
-- [ ] Mensagens
+- [x] Logs
+- [x] Exceções (API indisponível, resposta inválida, erro de banco)
+- [x] Mensagens (login inválido, campos ausentes, sem agendamentos)
 
 ## Sprint 7 - Docker
 

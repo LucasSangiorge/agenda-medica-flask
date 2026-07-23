@@ -28,6 +28,10 @@
         <a href="/logout">Sair</a>
     </header>
 
+    {% if erro %}
+    <p style="color: #b00020;">{{ erro }}</p>
+    {% endif %}
+
     <input type="text" id="busca" placeholder="Buscar por paciente, CPF ou médico...">
 
     <div id="tabela-agendamentos"></div>
