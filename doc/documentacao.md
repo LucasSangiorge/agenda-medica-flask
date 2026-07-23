@@ -93,8 +93,8 @@ agenda-medica-flask/
 
 ## Sprint 4 - API
 
-- [ ] API simulada
-- [ ] Integração HTTP
+- [x] API simulada
+- [x] Integração HTTP
 
 ## Sprint 5 - Agenda
 

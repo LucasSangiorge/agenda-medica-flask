@@ -2,6 +2,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from werkzeug.security import check_password_hash
 from app.database import get_connection
+import requests
+from config import Config
 
 main_bp = Blueprint(
     "main",
@@ -44,4 +46,14 @@ def logout():
 
 @main_bp.route("/agenda")
 def agenda():
-    return render_template("agenda.html")
+    resposta = requests.get(Config.MOCK_API_URL)
+    agendamentos = resposta.json()
+    return render_template("agenda.html", agendamentos=agendamentos)
+
+@main_bp.route("/api/agendamentos")
+def api_agendamentos():
+    conn = get_connection()
+    linhas = conn.execute("SELECT * FROM agendamentos").fetchall()
+    conn.close()
+    agendamentos = [dict(linha) for linha in linhas]
+    return agendamentos
