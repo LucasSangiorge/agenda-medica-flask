@@ -87,9 +87,9 @@ agenda-medica-flask/
 
 ## Sprint 3 - Autenticação
 
-- [ ] Login
-- [ ] Sessão
-- [ ] Logout
+- [x] Login
+- [x] Sessão
+- [x] Logout
 
 ## Sprint 4 - API
 
