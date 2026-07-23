@@ -1,6 +1,6 @@
 # Agenda Médica
 
-Projeto feito em Flask para o teste técnico de estágio da TimeSaver. É um sistema simples de agendamentos médicos, com tela de login e uma tabela com os agendamentos vindos de uma API mockada.
+Projeto feito em Flask como teste técnico de processo seletivo de estágio. É um sistema simples de agendamentos médicos, com tela de login e uma tabela com os agendamentos vindos de uma API mockada.
 
 ## O que tem no projeto
 
