@@ -52,9 +52,17 @@ def inserir_agendamentos_teste(conn):
 if __name__ == "__main__":
     conn = get_connection()
     criar_tabela_usuarios(conn)
-    inserir_usuario_teste(conn)
     criar_tabela_agendamentos(conn)
-    inserir_agendamentos_teste(conn)
-    conn.commit()
+    
+
+    banco_populado = conn.execute ("SELECT COUNT(*) FROM usuarios").fetchone()[0] > 0
+    if not banco_populado:
+        inserir_usuario_teste(conn)
+        inserir_agendamentos_teste(conn)
+        conn.commit()
+        print("Banco de dados criado e dados de teste inseridos com sucesso!")
+        
+    else:
+        print("Banco de dados já possui dados, pulando inserção de dados de testes")
+
     conn.close()
-    print("Banco de dados criado e dados de teste inseridos com sucesso!")
